@@ -83,6 +83,7 @@ namespace _408Client
                             warning_textbox.Text = username + " is already taken!\n";
                             clientSocket.Close();
                             connected = false;
+                            connect_button.Enabled = true;
 
                         }
                         else
