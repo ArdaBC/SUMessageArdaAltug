@@ -39,33 +39,44 @@ namespace _408Client
                     clientSocket.Receive(buffer);
 
                     string incomingMessage = Encoding.Default.GetString(buffer);
-                    incomingMessage = incomingMessage.Substring(0, incomingMessage.IndexOf("\n"));
+
+                    string code = incomingMessage.Substring(0, 3);
+                    string submsg = incomingMessage.Substring(4, incomingMessage.Length - 4);
+                    int userL = submsg.IndexOf(" ");
+                    string username = submsg.Substring(0, userL);
+                    string msg = submsg.Substring(userL + 1);
+
+                    //incomingMessage = incomingMessage.Substring(0, incomingMessage.IndexOf("\n"));
 
                     if (incomingMessage != "")
                     {
-                        if (incomingMessage.Substring(0, 3) == "IFR")
+                        if (code == "IFR")
                         {
-                            chat_textbox.AppendText(incomingMessage.Substring(3) + "\n");
+                            chat_textbox.AppendText("[" + username + "]: " + msg + "\n");
                         }
-                        else if (incomingMessage.Substring(0, 3) == "SPR")
+                        else if (code == "SPR")
                         {
-                            SPS101_chat.AppendText(incomingMessage.Substring(3) + "\n");
+                            SPS101_chat.AppendText("[" + username + "]: " + msg + "\n");
                         }
-                        else if (incomingMessage.Substring(0, 3) == "IFS")
+                        else if (code == "IFS")
                         {
-                            chat_textbox.AppendText(" * " + incomingMessage.Substring(3) + " just subscribed to IF 100!\n");
+                            chat_textbox.AppendText(" * " + username + " just subscribed to IF 100!\n");
+                            IF100_unsubscribe_button.Enabled = true;
                         }
-                        else if (incomingMessage.Substring(0, 3) == "IFU")
+                        else if (code == "IFU")
                         {
-                            chat_textbox.AppendText(" * " + incomingMessage.Substring(3) + " unsubscribed from IF 100.\n");
+                            chat_textbox.AppendText(" * " + username + " unsubscribed from IF 100.\n");
+                            IF100_subscribe_button.Enabled = true;
                         }
-                        else if (incomingMessage.Substring(0, 3) == "SPS")
+                        else if (code == "SPS")
                         {
-                            SPS101_chat.AppendText(" * " + incomingMessage.Substring(3) + " just subscribed to SPS 101!\n");
+                            SPS101_chat.AppendText(" * " + username + " just subscribed to SPS 101!\n");
+                            SPS101_unsubscribe_button.Enabled = true;
                         }
-                        else if (incomingMessage.Substring(0, 3) == "SPU")
+                        else if (code == "SPU")
                         {
-                            SPS101_chat.AppendText(" * " + incomingMessage.Substring(3) + " unsubscribed from SPS 101.\n");
+                            SPS101_chat.AppendText(" * " + username + " unsubscribed from SPS 101.\n");
+                            SPS101_subscribe_button.Enabled = true;
                         }
                         else
                         {
@@ -156,8 +167,8 @@ namespace _408Client
             IF100_subscribe_button.Visible = false;
             IF100_unsubscribe_button.Visible = true;
             IF100_unsubscribe_button.Enabled = false;
-            Thread.Sleep(1000);
-            IF100_unsubscribe_button.Enabled = true;
+            //Thread.Sleep(1000);
+            //IF100_unsubscribe_button.Enabled = true;
         }
 
         private void IF100_unsubscribe_button_Click(object sender, EventArgs e)
@@ -174,8 +185,8 @@ namespace _408Client
             IF100_subscribe_button.Visible = true;
             IF100_unsubscribe_button.Visible = false;
             IF100_subscribe_button.Enabled = false;
-            Thread.Sleep(1000);
-            IF100_subscribe_button.Enabled = true;
+            //Thread.Sleep(1000);
+            //IF100_subscribe_button.Enabled = true;
         }
 
         private void send_button_Click(object sender, EventArgs e)
@@ -230,8 +241,8 @@ namespace _408Client
             SPS101_subscribe_button.Visible = true;
             SPS101_unsubscribe_button.Visible = false;
             SPS101_subscribe_button.Enabled = false;
-            Thread.Sleep(1000);
-            SPS101_subscribe_button.Enabled = true;
+            //Thread.Sleep(1000);
+            //SPS101_subscribe_button.Enabled = true;
         }
 
         private void SPS101_subscribe_button_Click(object sender, EventArgs e)
@@ -247,8 +258,8 @@ namespace _408Client
             SPS101_subscribe_button.Visible = false;
             SPS101_unsubscribe_button.Visible = true;
             SPS101_unsubscribe_button.Enabled = false;
-            Thread.Sleep(1000);
-            SPS101_unsubscribe_button.Enabled = true;
+            //Thread.Sleep(1000);
+            //SPS101_unsubscribe_button.Enabled = true;
 
         }
     }
