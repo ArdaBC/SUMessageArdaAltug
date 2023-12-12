@@ -215,7 +215,7 @@ namespace _408Client
                 }
                 else
                 {
-                    warning_textbox.Text = "If you got this error, may God help you.";
+                    warning_textbox.Text = "Subscribe before sending a message!";
                 }
 
                 if (message != "" && message.Length <= 1024 && connected)
