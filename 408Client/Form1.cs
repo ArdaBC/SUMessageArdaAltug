@@ -40,6 +40,7 @@ namespace _408Client
 
                     string incomingMessage = Encoding.Default.GetString(buffer);
 
+                    incomingMessage = incomingMessage.Substring(0, incomingMessage.IndexOf('\0'));
                     string code = incomingMessage.Substring(0, 3);
                     string submsg = incomingMessage.Substring(4, incomingMessage.Length - 4);
                     int userL = submsg.IndexOf(" ");
@@ -225,7 +226,7 @@ namespace _408Client
                 }
 
                 send_button.Enabled = false;
-                Thread.Sleep(1000);
+                Thread.Sleep(100);
                 send_button.Enabled = true;
 
             }
