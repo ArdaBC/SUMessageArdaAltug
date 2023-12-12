@@ -78,6 +78,10 @@ namespace _408Client
                             SPS101_chat.AppendText(" * " + username + " unsubscribed from SPS 101.\n");
                             SPS101_subscribe_button.Enabled = true;
                         }
+                        else if (code == "CER")
+                        {
+                            warning_textbox.Text = username + " is already taken!\n";
+                        }
                         else
                         {
                             warning_textbox.Text = "Faulty server response!\n";
