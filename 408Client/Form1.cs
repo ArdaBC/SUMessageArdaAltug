@@ -81,6 +81,9 @@ namespace _408Client
                         else if (code == "CER")
                         {
                             warning_textbox.Text = username + " is already taken!\n";
+                            clientSocket.Close();
+                            connected = false;
+
                         }
                         else
                         {
