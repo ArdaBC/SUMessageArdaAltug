@@ -207,11 +207,11 @@ namespace _408Client
 
                 if (channel_menu.Text == "SPS 101" && SPS101_subscribe_button.Visible == false)
                 {
-                    message = "SPM " + userName + " " + message_textbox.Text;
+                    message = "SPM " + userName + " " + message_textbox.Text + " ";
                 }
                 else if (channel_menu.Text == "IF 100" && IF100_subscribe_button.Visible == false)
                 {
-                    message = "IFM " + userName + " " + message_textbox.Text;
+                    message = "IFM " + userName + " " + message_textbox.Text + " ";
                 }
                 else
                 {
