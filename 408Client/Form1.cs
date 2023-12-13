@@ -232,7 +232,7 @@ namespace _408Client
             }
             else
             {
-                warning_textbox.AppendText("Choose a channel you subscribed to first!\n");
+                warning_textbox.Text = "Choose a channel you subscribed to first!\n";
             }
 
         }
