@@ -226,6 +226,7 @@ namespace _408Client
                 }
 
                 send_button.Enabled = false;
+                message_textbox.Text = ""; //Clear the textbox
                 Thread.Sleep(100);
                 send_button.Enabled = true;
 
