@@ -203,33 +203,40 @@ namespace _408Client
 
             if (channel_menu.Text != string.Empty)
             {
-          
-                string message = "";
 
-                if (channel_menu.Text == "SPS 101" && SPS101_subscribe_button.Visible == false)
+                if (message_textbox.Text != string.Empty)
                 {
-                    message = "SPM " + userName + " " + message_textbox.Text + " ";
-                }
-                else if (channel_menu.Text == "IF 100" && IF100_subscribe_button.Visible == false)
-                {
-                    message = "IFM " + userName + " " + message_textbox.Text + " ";
+                    string message = "";
+
+                    if (channel_menu.Text == "SPS 101" && SPS101_subscribe_button.Visible == false)
+                    {
+                        message = "SPM " + userName + " " + message_textbox.Text + " ";
+                    }
+                    else if (channel_menu.Text == "IF 100" && IF100_subscribe_button.Visible == false)
+                    {
+                        message = "IFM " + userName + " " + message_textbox.Text + " ";
+                    }
+                    else
+                    {
+                        warning_textbox.Text = "Subscribe before sending a message!";
+                    }
+
+                    if (message != "" && message.Length <= 1024 && connected)
+                    {
+                        Byte[] buffer = Encoding.Default.GetBytes(message);
+                        clientSocket.Send(buffer);
+                    }
+
+                    send_button.Enabled = false;
+                    message_textbox.Text = ""; //Clear the textbox
+                    Thread.Sleep(100);
+                    send_button.Enabled = true;
+
                 }
                 else
                 {
-                    warning_textbox.Text = "Subscribe before sending a message!";
-                }
-
-                if (message != "" && message.Length <= 1024 && connected)
-                {
-                    Byte[] buffer = Encoding.Default.GetBytes(message);
-                    clientSocket.Send(buffer);
-                }
-
-                send_button.Enabled = false;
-                message_textbox.Text = ""; //Clear the textbox
-                Thread.Sleep(100);
-                send_button.Enabled = true;
-
+                    warning_textbox.Text = "Write a message to send first!\n";
+                }            
             }
             else
             {
