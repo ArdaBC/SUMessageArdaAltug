@@ -1,10 +1,10 @@
-Group Members: Arda Berk Çetin (31077), Altuğ Yalım (29388)
+**Group Members:** Arda Berk Çetin (31077), Altuğ Yalım (29388)
 
-A simple server and client application that lets you talk with other users who are subscribed to the same channels as you.
+**Project description:** A simple server and client application that lets you talk with other users who are subscribed to the same channels as you.
 
-Pre-existing channels (as requested by the project document): SPS 101, IF 100
+**Pre-existing channels (as requested by the project document):** SPS 101, IF 100
 
-Constraints on usernames:
+**Constraints on usernames:**
 
 * Spaces are not allowed
 
