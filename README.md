@@ -1,4 +1,4 @@
-# CS408Project
+# CS Project
 
 **Group Members:** Arda Berk Çetin (31077), Altuğ Yalım (29388)
 
