@@ -8,9 +8,7 @@ A simple server and client application that lets you talk with other users who a
 
 # Some minor details:
 
-**Pre-existing channels (as requested by the project document):** SPS 101, IF 100
-
-**Constraints on usernames:**
+There are 2 pre-existing channels as requested by the project document. There are also some constraints on usernames:
 
 * Spaces are not allowed
 
